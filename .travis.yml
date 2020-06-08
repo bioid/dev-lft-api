@@ -5,4 +5,13 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database "dev-lft-test";' -U postgres
-  - npm run migrate
+  - psql -d dev-lft-api -U postgres -f ./migrations/001.do.create_users.sql
+  - psql -d dev-lft-api -U postgres -f ./migrations/002.do.create_projects_vacancies.sql
+  - psql -d dev-lft-api -U postgres -f ./migrations/003.do.create-requests.sql
+  - psql -d dev-lft-api -U postgres -f ./migrations/004.do.create-posts.sql
+  - psql -d dev-lft-api -U postgres -f ./migrations/005.do.create_chats_messages.sql
+  - psql -d dev-lft-api -U postgres -f ./migrations/006.do.create_notifications.sql
+  - psql -d dev-lft-api -U postgres -f ./migrations/007.do.alter_requests.sql
+  - psql -d dev-lft-api -U postgres -f ./migrations/008.do.remove_project_id.sql
+  - psql -d dev-lft-api -U postgres -f ./migrations/009.do.alter_chats.sql
+  - psql -d dev-lft-api -U postgres -f ./migrations/010.do.alter_projects.sql
