@@ -4,7 +4,7 @@ node_js:
 services:
   - postgresql
 before_install:
-  - psql -c 'create database dev-lft-test;' -U postgres
+  - psql -c 'create database "dev-lft-test";' -U postgres
   - cp example.env .env
   - npm run migrate:test
   - psql -d dev-lft-test -U postgres -f ./seeds/seed.tables.sql
