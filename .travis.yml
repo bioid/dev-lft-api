@@ -1,8 +1,12 @@
 language: node_js
 node_js:
   - node
-services:
-  - postgresql
+addons:
+  postgresql: '12'
+  apt:
+    packages:
+      - postgresql-12
+      - postgresql-client-12
 before_script:
   - psql -c 'create database "dev-lft-test";' -U postgres
   - psql -d "dev-lft-test" -U postgres -f ./migrations/001.do.create_users.sql
