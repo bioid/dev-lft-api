@@ -5,6 +5,4 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database "dev-lft-test";' -U postgres
-  - cp example.env .env
-  - npm run migrate:test
-  - psql -d dev-lft-test -U postgres -f ./seeds/seed.tables.sql
+  - npm run migrate
