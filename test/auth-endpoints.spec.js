@@ -7,7 +7,8 @@ describe('Auth Endpoints', function () {
   let db;
 
   before(() => {
-    console.log(process.env.TEST_DB_URL.split().join('\n'))
+    console.log(process.env.TEST_DB_URL.split().reverse())
+    console.log('poops')
     db = knex({
       client: 'pg',
       connection: process.env.TEST_DB_URL
