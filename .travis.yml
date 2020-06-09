@@ -2,11 +2,12 @@ language: node_js
 node_js:
   - node
 addons:
-  postgresql: '12'
   apt:
     packages:
       - postgresql-12
       - postgresql-client-12
+before_install:
+  - sudo pg_ctlcluster 12 main restart
 before_script:
   - pg_ctl start
   - psql -c 'create database "dev-lft-test";' -U postgres
