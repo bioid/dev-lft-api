@@ -8,6 +8,9 @@ addons:
       - postgresql-client-12
 before_install:
   - sudo pg_ctlcluster 12 main restart
+  - sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/12/main/postgresql.conf
+  - sudo cp /etc/postgresql/{9.3,12}/main/pg_hba.conf
+
 before_script:
   - psql -c 'create database "dev-lft-test";' -U postgres
   - psql -d "dev-lft-test" -U postgres -f ./migrations/001.do.create_users.sql
