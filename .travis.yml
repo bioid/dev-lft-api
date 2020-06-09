@@ -9,7 +9,6 @@ addons:
 before_install:
   - sudo pg_ctlcluster 12 main restart
 before_script:
-  - pg_ctl start
   - psql -c 'create database "dev-lft-test";' -U postgres
   - psql -d "dev-lft-test" -U postgres -f ./migrations/001.do.create_users.sql
   - psql -d "dev-lft-test" -U postgres -f ./migrations/002.do.create_projects_vacancies.sql
