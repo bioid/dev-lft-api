@@ -13,4 +13,4 @@ before_install:
   - sudo runuser -l postgres -c "/usr/lib/postgresql/12/bin/pg_ctl -D /var/lib/postgresql/12/main -l logfile restart"
 before_script:
   - psql -c 'create database "dev-lft-test";' -U postgres -w -p 5433
-  - for f in ./migrations/*.do.*; do psql -d $TEST_DB_URL -p 5433 -U postgres -f $f ;done
+  - for f in ./migrations/*.do.*; do psql -d $TEST_DB_URL -p 5433 -U postgres -w -f $f ;done
