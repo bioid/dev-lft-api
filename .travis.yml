@@ -10,7 +10,7 @@ before_install:
   - sudo sed -i 's/ident/md5/' /etc/postgresql/12/main/postgresql.conf
   - sudo runuser -l postgres -c "/usr/lib/postgresql/12/bin/pg_ctl -D /var/lib/postgresql/12/main -l logfile restart"
 before_script:
-  - psql -c 'create database "dev-lft-test";' -U postgres -p 5433
+  - psql -c 'create database \"dev-lft-test\";' -U postgres -p 5433
   - psql -d $TEST_DB_URL -U postgres -f ./migrations/001.do.create_users.sql
   - psql -d $TEST_DB_URL -U postgres -f ./migrations/002.do.create_projects_vacancies.sql
   - psql -d $TEST_DB_URL -U postgres -f ./migrations/003.do.create-requests.sql
