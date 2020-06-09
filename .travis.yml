@@ -15,8 +15,8 @@ before_script:
   - psql -c 'create database "dev-lft-test";' -U postgres -w -p 5433
   - psql -d $TEST_DB_URL -U postgres -f ./migrations/001.do.create_users.sql
   - psql -d $TEST_DB_URL -U postgres -f ./migrations/002.do.create_projects_vacancies.sql
-  - psql -d $TEST_DB_URL -U postgres -f ./migrations/003.do.create-requests.sql
-  - psql -d $TEST_DB_URL -U postgres -f ./migrations/004.do.create-posts.sql
+  - psql -d $TEST_DB_URL -U postgres -f ./migrations/003.do.create_requests.sql
+  - psql -d $TEST_DB_URL -U postgres -f ./migrations/004.do.create_posts.sql
   - psql -d $TEST_DB_URL -U postgres -f ./migrations/005.do.create_chats_messages.sql
   - psql -d $TEST_DB_URL -U postgres -f ./migrations/006.do.create_notifications.sql
   - psql -d $TEST_DB_URL -U postgres -f ./migrations/007.do.alter_requests.sql
