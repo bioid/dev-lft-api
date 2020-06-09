@@ -7,7 +7,7 @@ addons:
       - postgresql-12
       - postgresql-client-12
 before_install:
-  - /usr/lib/postgresql/12/bin/pg_ctl -D /var/lib/postgresql/12/main -l logfile start
+  - sudo /usr/lib/postgresql/12/bin/pg_ctl -D /var/lib/postgresql/12/main -l logfile start
 before_script:
   - psql -c 'create database "dev-lft-test";' -U postgres -p 5433
   - psql -d $TEST_DB_URL -U postgres -f ./migrations/001.do.create_users.sql
