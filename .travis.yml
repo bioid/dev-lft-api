@@ -9,7 +9,7 @@ addons:
 before_install:
   - sudo pg_ctlcluster 12 main restart
   - sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/12/main/postgresql.conf
-  - sudo cp /etc/postgresql/{9.3,12}/main/pg_hba.conf
+  - sudo cp /etc/postgresql/12/main/pg_hba.conf
 
 before_script:
   - psql -c 'create database "dev-lft-test";' -U postgres
