@@ -7,11 +7,6 @@ describe('Auth Endpoints', function () {
   let db;
 
   before(() => {
-    let x = process.env.TEST_DB_URL;
-    for (let i = 0; i < x.length; i++)
-      console.log(x[i] + '\nabcdefg')
-    console.log(process.env.TEST_DB_URL.split().reverse())
-    console.log('poops')
     db = knex({
       client: 'pg',
       connection: process.env.TEST_DB_URL
@@ -21,7 +16,7 @@ describe('Auth Endpoints', function () {
 
   after('disconnect from db', () => db.destroy());
 
-  before('clean the table', () => cleanTables(db));
+  before('clean the table', () => cleanTables(db).catch(console.log));
 
   afterEach('cleanup', () => cleanTables(db));
 
