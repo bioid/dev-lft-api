@@ -281,13 +281,15 @@ function seedProjectsTables(
 }
 
 function cleanTables(db) {
-  return db.transaction(trx =>
+  return db.transaction(trx =>{
     trx.raw(
       `TRUNCATE
           users
           RESTART IDENTITY CASCADE
         `
     )
+    return trx.commit();
+  }
   );
 }
 
