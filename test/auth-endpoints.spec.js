@@ -5,12 +5,10 @@ const { makeUsersArray, seedUsers, cleanTables } = require('./test-helpers');
 
 describe.only('Auth Endpoints', function () {
   let db;
-  this.timeout(60000)
   before(() => {
     db = knex({
       client: 'pg',
-      connection: process.env.TEST_DB_URL,
-      debug: true
+      connection: process.env.TEST_DB_URL
     });
     app.set('db', db);
   });
