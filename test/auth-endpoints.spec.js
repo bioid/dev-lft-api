@@ -3,9 +3,9 @@ const app = require('../src/app');
 const jwt = require('jsonwebtoken');
 const { makeUsersArray, seedUsers, cleanTables } = require('./test-helpers');
 
-describe('Auth Endpoints', function () {
+describe.only('Auth Endpoints', function () {
   let db;
-
+  this.timeout(60000)
   before(() => {
     db = knex({
       client: 'pg',
