@@ -3,7 +3,7 @@ const app = require('../src/app');
 const jwt = require('jsonwebtoken');
 const { makeUsersArray, seedUsers, cleanTables } = require('./test-helpers');
 
-describe.only('Auth Endpoints', function () {
+describe('Auth Endpoints', function () {
   let db;
   before(() => {
     db = knex({
