@@ -7,6 +7,9 @@ describe('Auth Endpoints', function () {
   let db;
 
   before(() => {
+    let x = process.env.TEST_DB_URL;
+    for (let i = 0; i < x.length; i++)
+      console.log(x[i] + '\nabcdefg')
     console.log(process.env.TEST_DB_URL.split().reverse())
     console.log('poops')
     db = knex({
